@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<?php
+?>
+
+<html>
+  <title>MODULO ISCRIZIONE </title>  
+  <body>
+  
+    <h1>Modulo iscrizione</h1>
+    <form action="riepilogo.php" method="POST"name= "form1" onsubmit="return verifica()">
+       
+Cognome :  <input type="text" name ="cognome" >       </br></br> 
+Nome :<input type="text" name="nome">           </br></br>
+Indirizzo :  <input type="text" name ="indirizzo" >       </br></br> 
+Telefono :  <input type="text" name ="telefono" >       </br></br> 
+
+e-Mail :<input type="text" name ="mail">           </br></br>
+Password :<input type="password" name="password">        </br></br>
+
+    
+ <p><input type="submit" value= "Conferma" name ="Conferma">  
+   </form>
+
+<form action="index.php" method="POST">
+    <input type="submit"  value="Annulla"name ="Annulla"</p>
+
+</form>
+  
+  </body>
+
+ </html>
+
+  <script>
+function verifica()
+  {  
+     if(document.form1.cognome.value.length<1)
+      {
+        alert("NON E' STATO INSERITO IL COGNOME");
+        return false;
+      }
+     else if(document.form1.nome.value.length<1)
+      {
+        alert("NON E' STATO INSERITO IL NOME");
+        return false;
+      }
+ else if(document.form1.nome.value.length<1)
+      {
+        alert("NON E' STATO INSERITO IL NOME");
+        return false;
+      }
+    else if(document.form1.nome.value.length<1)
+      {
+        alert("NON E' STATO INSERITO IL NOME");
+        return false;
+      }
+    else if(document.form1.mail.value.length<1)
+      {
+        alert("NON E' STATA INSERITA LA MAIL ");
+        return false;
+      }
+    else if(document.form1.password.value.length<1)
+    {
+      alert("NON E' STATA INSERITA LA PASSWORD");
+     return false;
+    }
+    else
+    {
+      return true;
+    }
+                        
+  }
+  function goback()
+  {
+    window.history.back();
+    return
+  }
+</script>

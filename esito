@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<?php
+
+  $servername='localhost';
+  $dbname='Registrazione';
+  $serverloc='mysql:host=localhost;dbname=Registrazione';  
+  $username="root";
+  $mpass="root";
+  $cognome=$_POST["cognome"];
+  $nome=$_POST["nome"];
+  $sesso=$_POST["sesso"];
+  $nazio=$_POST["nazion"];
+  $patente=$_POST["pat"];
+  $mail=$_POST["mail"];
+  $pass=$_POST["password"];
+
+   if (!isset($nome))
+   {echo 'nulla';}
+ try
+  {
+   $conn=new PDO($serverloc,$username,$mpass);
+    echo 'Connected to database';
+   $com=$conn->prepare("INSERT INTO Utente(Cognome,Nome,Sesso,Nazionalita,Patente,Mail,Password) VALUES(:cognome,:nome,:sesso,:nazion,:pat,:mail,:password)");  
+   $com->bindValue(":cognome",$cognome );
+   $com->bindValue(":nome",$nome );
+   $com->bindValue(":sesso",$sesso );
+   $com->bindValue(":nazion",$nazio );
+   $com->bindValue(":pat",$patente);
+   $com->bindValue(":mail",$mail );
+   $com->bindValue(":password",$pass);
+   $com->execute();
+   
+    }catch(PDOException $e)
+   
+   {
+      echo 'Connessione fallita';
+    
+   }
+  $conn=null;
+?>
+
+<html>
+  <title>ESITO ISCRIZIONE</title>
+  
+  <h1>ESITO ISCRIZIONE</h1>
+  <body>
+
+    Dati correttamente registrati
+ <input type=submit values="Chiudi"name ="Chiudi">
+  
+    
+  </body>
+  
+ </html>

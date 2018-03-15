@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<?php
+
+$messaggio="Nome =".$_POST["nome"];
+$messaggio1="Cognome =".$_POST["cognome"];
+$messaggio2="Sesso =".$_POST["sesso"];
+$messaggio3="Nazionalita' =".$_POST["nazion"];
+
+ 
+  if (!isset($_POST["pat"])&& !isset($_POST["pat2"]))
+  {
+  $messaggio4="Patente = Nessuna";
+  }
+  if (isset($_POST["pat2"]))
+  {
+  $messaggio4="Patente = Cat.B";
+  }
+  if (isset($_POST["pat"]))
+  {
+  $messaggio4="Patente = Cat.A";
+  }
+  if (isset ($_POST["pat"])&&isset($_POST["pat2"]))
+  {
+    $messaggio4="Patente = Cat.A - Cat.B";
+  }
+$messaggio5="e-Mail =".$_POST["mail"];
+
+?>
+
+<html>
+  <title>RIEPILOGO DATI </title>
+  
+  <body>
+  
+    <h1>RIEPILOGO DATI</h1>
+    <p><?php echo $messaggio ?></p>
+    <p><?php echo $messaggio1 ?></p>
+    <p><?php echo $messaggio2 ?></p>
+    <p><?php echo $messaggio3 ?></p>
+    <p><?php echo $messaggio4 ?></p>
+    <p><?php echo $messaggio5 ?></p>
+
+   <form action="index.php" method="POST" onclick="goback()">
+       <p><input type="submit" value= "Correggi"></p>
+   </form>
+   <form action="esito.php" method="POST">
+       <input type="submit"  value="Registra"</p>     
+   </form> 
+  </body>  
+ </html>
